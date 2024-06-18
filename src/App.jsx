@@ -1,43 +1,49 @@
+import './App.css';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import axios from "axios";
-import './App.css'
 
+// Pages
+import Home from "./pages/Home";
+import Offer from "./pages/Offer.jsx";
+import Cookies from "js-cookie";
+
+
+// Components
+import Header from "./Components/Header.jsx";
+import Signup from './pages/Signup.jsx';
+import Login from './pages/Login.jsx';
+import Publish from './pages/Publish.jsx';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/v2/offers"
-        );
-        // console.log(response.data);
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+  const [token, setToken] = useState(Cookies.get("userToken") || null);
 
-  return isLoading ? (
-    <p>Loading ...</p>
-  ) : (
+  const handleToken = (token) => {
 
-<Router>
+  if (token){
+
+    Cookies.set("userToken", token, {expires:10});
+    setToken(token)
+  }
+  else {
+    Cookies.remove("userToken")
+    setToken(null)
+  }
+
+};
+
+
+  return ( 
+  <Router>
+  <Header  handleToken={handleToken}/>
   <Routes>
-  <Route path="/" element={<Home />} />
-
-  </Routes>
-</Router>
-
-
-
+    <Route path="/" element={<Home />} />
+    <Route path="/offers/:id" element={<Offer />} />
+    <Route path="/signup" element= {<Signup handleToken={handleToken} />  }  />
+    <Route path='/login' element= {<Login handleToken={handleToken} />} />
+    <Route path = "/publish" element = {<Publish />} />
+  </Routes> 
+</Router> 
+)}
   
-  )
-}
-
 export default App

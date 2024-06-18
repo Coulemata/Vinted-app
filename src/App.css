@@ -1,42 +1,233 @@
+*{
+    box-sizing: border-box;
+}
+
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  /* max-width: 1280px; */
+
+  /* padding: 40px; */
+
 }
 
 .logo {
-  height: 6em;
+  height: 80px;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+/*GENERAL */
+.btn-light {
+  color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  background-color: white;
+  min-width: 120px;
+  padding: 10px;
+  margin: 0 10px 0 0;
+
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.btn-dark {
+  color: white;
+  border: 1px solid ;
+  border-radius: 5px;
+  background-color: #2cb1ba;
+  min-width: 120px;
+  padding: 10px;
+  margin: 0 10px 0 0;
+
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+
+  text-decoration: none;
+  color: #999;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/*HEADER*/
+header {
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
-.card {
-  padding: 2em;
+
+
+.search-input {
+  width: 590px;
+  padding-left: 40px;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  height: 37px;
+  border: none;
+  outline: none;
 }
 
-.read-the-docs {
-  color: #888;
+.header-hero {
+  width: 100%;
+  height: 455px;
+ 
+  background-image: url("./src/assets/img/hero-vinted.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  position: relative;
+}
+
+.bloc-header-hero{
+
+  background-color: white;
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  position: absolute;
+  top: 60px;
+  left: 60px; 
+  border-radius: 5px;
+}
+
+.header-hero-form {
+  position:absolute; 
+  bottom: 0px;
+}
+
+.bloc-header-hero h1 {
+
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 20px;
+
+  
+}
+
+/*HOME PAGE*/
+.home-card-container {
+
+  display: flex;
+  flex-wrap: wrap ;
+ justify-content: center;
+  margin: 40px auto;
+}
+
+.owner-card{
+  width: 40px;
+  border-radius: 50px;
+
+}
+.card-container {
+
+
+  height: 426px; 
+  ;
+}
+
+.img-card-container {
+
+width: 235px;
+height:300px ;
+  object-fit: cover;
+}
+
+
+/*OFFER PAGE*/ 
+
+.body-offer {
+
+  background-color: #ebedee;
+}
+
+.offer-img {
+
+  width: 450px;
+}
+
+
+.offer-details {
+
+  background-color: white;
+}
+
+
+.offer-container {
+
+  display: flex;
+  display: row;
+}
+
+
+/*SIGNUP PAGE */
+
+.form-container {
+
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 30%;
+}
+
+.form-container input {
+
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  padding: 10px;
+  margin-bottom: 20px;
+  outline:none;
+  font-size: 16px;
+
+}
+
+::placeholder { 
+  color: #cbcbcb
+}
+
+.newsletter-part {
+
+  margin-top: 30px;
+  font-size: 16px;
+  color: #6666;
+}
+
+.form-container p {
+
+  color:#999999 ;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+
+
+.form-container h1 {
+
+  font-size:24px;
+  margin-bottom: 20px;
+  text-align: center;
+
+
+}
+
+/*PUBLISH PAGE */
+
+.publish-form-container {
+
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+
+.input-container {
+
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ebedee;
+
+}
+
+.publish-form-container input, textarea {
+
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  padding: 10px;
+  margin-bottom: 20px;
+  outline:none;
+  font-size: 16px;
+
 }
